@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import root
 
+########### ここからを変更 ##############
 WIDTH = 1640
 HEIGHT = 1232
 
@@ -9,6 +10,7 @@ mtx = np.array([[1.69806089e+03, 0.00000000e+00, 7.88050060e+02],
                 [0.00000000e+00, 1.70364174e+03, 6.38980510e+02],
                 [0.00000000e+00, 0.00000000e+00, 1.00000000e+00]])
 dist = np.array([0.71281358, -0.72957719,  0.01985307, -0.01629121, -0.4710592])
+########### ここまでを変更 ##############
 
 k1 = dist[0]; k2 = dist[1]; k3 = dist[4]
 p1 = dist[2]; p2 = dist[3]
@@ -84,10 +86,13 @@ def main():
     fig, axes = plt.subplots(1, 3)
     axes[0].scatter(ox, oy, s=0.5)
     axes[0].set_aspect('equal')
+    axes[0].set_title("Original x and y")
     axes[1].scatter(x, y, s=0.5)
     axes[1].set_aspect('equal')
+    axes[1].set_title("After distortion")
     axes[2].scatter(ox2, oy2, s=0.5)
     axes[2].set_aspect('equal')
+    axes[2].set_title("After distortion correction")
     plt.tight_layout()
     plt.show()
 
